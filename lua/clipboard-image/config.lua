@@ -7,6 +7,9 @@ M.config = {
     img_name = function()
       return os.date "%Y-%m-%d-%H-%M-%S"
     end,
+    paste_handler = function(affix, path_txt)
+      require("clipboard-image.utils").insert_txt(affix, path_txt)
+    end,
     img_handler = function(img) end,
     affix = "%s",
   },
@@ -63,6 +66,7 @@ M.load_config = function(config_toload)
     img_dir = M.load_opt(config_toload.img_dir),
     img_dir_txt = M.load_opt(config_toload.img_dir_txt),
     img_handler = config_toload.img_handler,
+    paste_handler = config_toload.paste_handler,
   }
 end
 
